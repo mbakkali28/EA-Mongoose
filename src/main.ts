@@ -7,14 +7,21 @@ import {
   deleteTask,
   listAllTasks
 } from './services/task.service.js';
-import { seedOrganizations } from './services/organization.service.js';
-import { seedUsers } from './services/user.service.js';
+import { deleteAllOrganizations, seedOrganizations } from './services/organization.service.js';
+import { deleteAllUsers, seedUsers } from './services/user.service.js';
 import { buildUsersSeed, organizationsSeed } from './seed-data.js';
+
+const cleanDatabase = async (): Promise<void> => {
+  await Promise.all([deleteAllUsers(), deleteAllOrganizations()]);
+  console.log('Base de datos limpia');
+}
 
 const main = async (): Promise<void> => {
   try {
     await connectDatabase();
     console.log('Conectado a MongoDB');
+
+    await cleanDatabase();
 
     const organizations = await seedOrganizations(organizationsSeed);
     const users = await seedUsers(buildUsersSeed(organizations));
