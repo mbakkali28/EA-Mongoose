@@ -1,5 +1,4 @@
 import { connectDatabase, disconnectDatabase } from './config/db.js';
-import mongoose from 'mongoose';
 import {
   createTask,
   getTaskById,

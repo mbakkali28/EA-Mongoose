@@ -2,7 +2,7 @@
 
 Exercici Mongoose
 
-- [Video]()
+- [Video](https://drive.google.com/file/d/1lPSmemjvt63t9d5BGIO1GTgWiOquFH07/view?usp=drive_link)
 
 ## Referències
 
